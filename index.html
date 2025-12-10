@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Desenvolvedor Full Stack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="bracket">&lt;</span>
+                <span class="name">Dev</span>
+                <span class="bracket">/&gt;</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#museum" class="nav-link">Museu de Projetos</a></li>
+                <li><a href="#game" class="nav-link">Jogar</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line"><span class="prompt">$</span> <span class="command typed-text"></span><span class="cursor">|</span></p>
+                </div>
+            </div>
+            <h1 class="hero-title">Desenvolvedor Full Stack</h1>
+            <p class="hero-subtitle">1.5 anos de experiência • Análise e Desenvolvimento de Sistemas</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="highlight">Olá! Sou um desenvolvedor apaixonado por criar soluções tecnológicas inovadoras.</p>
+                    <p>Com <strong>1.5 anos de experiência prática</strong> em desenvolvimento e <strong>2 anos de formação</strong> em Análise e Desenvolvimento de Sistemas, trago uma combinação única de conhecimento teórico e habilidades práticas.</p>
+                    <p>Minha jornada no desenvolvimento me permitiu trabalhar com diversas tecnologias, desde front-end até back-end, sempre buscando escrever código limpo, eficiente e escalável.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1.5+</div>
+                            <div class="stat-label">Anos de Experiência</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Anos de Formação</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Projetos Concluídos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Front-end</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-name">HTML/CSS</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">React</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">TypeScript</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Back-end</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-name">Node.js</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">APIs REST</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Ferramentas</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-name">Git</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Linux</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">VS Code</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <button class="btn-view" onclick="window.location.href='projects/sistema-gerenciamento.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistema de Gerenciamento</h3>
+                        <p>Aplicação web completa para gerenciamento de produtos e estoque com dashboard interativo.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <button class="btn-view" onclick="window.location.href='projects/api-restful.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>API RESTful</h3>
+                        <p>API robusta com autenticação JWT, documentação Swagger e testes automatizados.</p>
+                        <div class="project-tags">
+                            <span class="tag">Express</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">JWT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <button class="btn-view" onclick="window.location.href='projects/dashboard-analytics.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Dashboard responsivo com gráficos interativos e visualização de dados em tempo real.</p>
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">WebSocket</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <button class="btn-view" onclick="window.location.href='projects/black-hole.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Simulação Black Hole</h3>
+                        <p>Experimento visual em Canvas simulando um campo de gravidade com partículas orbitando um buraco negro.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5 Canvas</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <button class="btn-view" onclick="window.location.href='projects/bolinhas.html'">Ver Detalhes</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Arena Caótica - Simulador de Física</h3>
+                        <p>Arena 2D de "bolinhas" e formas geométricas com modos Normal, Batalha, Grower, Split, Buraco Negro e Estrela, focada em física customizada e caos controlado.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML5 Canvas</span>
+                            <span class="tag">Simulação Física</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Museum Section -->
+    <section id="museum" class="museum">
+        <div class="container">
+            <h2 class="section-title">Museu de Projetos</h2>
+            <p class="section-subtitle">Uma visão organizada dos meus projetos ativos e experimentos ao longo de 1,5 ano de jornada.</p>
+            
+            <div class="museum-grid">
+                <div class="museum-item">
+                    <div class="museum-header">
+                        <h3>Projetos em produção pessoal</h3>
+                        <span class="museum-lang">Ativos</span>
+                    </div>
+                    <ul class="museum-project-list">
+                        <li class="museum-project">
+                            <div class="museum-project-main">
+                                <span class="museum-project-name">Sistema de Gerenciamento</span>
+                                <span class="museum-project-tag">Full stack</span>
+                            </div>
+                            <p class="museum-project-desc">Aplicação web para gestão de estoque e produtos com autenticação, relatórios e dashboard.</p>
+                            <a href="projects/sistema-gerenciamento.html" class="museum-link">Ver detalhes</a>
+                        </li>
+                        <li class="museum-project">
+                            <div class="museum-project-main">
+                                <span class="museum-project-name">API RESTful</span>
+                                <span class="museum-project-tag">Back-end</span>
+                            </div>
+                            <p class="museum-project-desc">API com autenticação, documentação e testes automatizados, focada em boas práticas de arquitetura.</p>
+                            <a href="projects/api-restful.html" class="museum-link">Ver detalhes</a>
+                        </li>
+                        <li class="museum-project">
+                            <div class="museum-project-main">
+                                <span class="museum-project-name">Dashboard Analytics</span>
+                                <span class="museum-project-tag">Front-end de dados</span>
+                            </div>
+                            <p class="museum-project-desc">Dashboard responsivo com gráficos e métricas em tempo quase real para apoio à tomada de decisão.</p>
+                            <a href="projects/dashboard-analytics.html" class="museum-link">Ver detalhes</a>
+                        </li>
+                        <li class="museum-project">
+                            <div class="museum-project-main">
+                                <span class="museum-project-name">Simulação Black Hole</span>
+                                <span class="museum-project-tag">Experimento visual</span>
+                            </div>
+                            <p class="museum-project-desc">Simulação de partículas orbitando um buraco negro, utilizada para estudar física básica e renderização em Canvas.</p>
+                            <a href="projects/black-hole.html" class="museum-link">Ver detalhes</a>
+                        </li>
+                        <li class="museum-project">
+                            <div class="museum-project-main">
+                                <span class="museum-project-name">Arena Caótica - Simulador de Física ("bolinhas")</span>
+                                <span class="museum-project-tag">Simulação de física</span>
+                            </div>
+                            <p class="museum-project-desc">Arena 2D com times e formas colidindo, múltiplos modos de jogo e ajustes finos de velocidade, vida e dano, construída sobre o projeto arena-physics-sim.</p>
+                            <a href="projects/bolinhas.html" class="museum-link">Ver detalhes</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="museum-item">
+                    <div class="museum-header">
+                        <h3>Experimentos e projetos de estudo</h3>
+                        <span class="museum-lang">Explorando ideias</span>
+                    </div>
+                    <ul class="museum-project-list">
+                        <li class="museum-project">
+                            <div class="museum-project-main">
+                                <span class="museum-project-name">Jogo da Cobrinha</span>
+                                <span class="museum-project-tag">JavaScript e Canvas</span>
+                            </div>
+                            <p class="museum-project-desc">Implementação do clássico jogo para praticar lógica de jogo, controle de estado e interação em tempo real.</p>
+                            <a href="#game" class="museum-link">Ir para o jogo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snake Game Section -->
+    <section id="game" class="game-section">
+        <div class="container">
+            <h2 class="section-title">Jogo da Cobrinha</h2>
+            <p class="section-subtitle">Um clássico desenvolvido em JavaScript puro</p>
+            
+            <div class="game-container">
+                <div class="game-info">
+                    <div class="score-board">
+                        <div class="score-item">
+                            <span class="score-label">Pontuação:</span>
+                            <span class="score-value" id="score">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Recorde:</span>
+                            <span class="score-value" id="highScore">0</span>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <p>Use as setas do teclado ou WASD para controlar</p>
+                        <button id="startBtn" class="btn btn-primary">Iniciar Jogo</button>
+                        <button id="pauseBtn" class="btn btn-secondary" disabled>Pausar</button>
+                    </div>
+                </div>
+                <div class="game-wrapper">
+                    <canvas id="snakeCanvas" width="400" height="400"></canvas>
+                    <div id="gameOver" class="game-over">
+                        <h3>Game Over!</h3>
+                        <p>Sua pontuação: <span id="finalScore">0</span></p>
+                        <button id="restartBtn" class="btn btn-primary">Jogar Novamente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Vamos Conversar?</h2>
+            <p class="section-subtitle">Estou sempre aberto a novos desafios e oportunidades</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">Email</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>kauasilvasoftware@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">LinkedIn</div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>https://www.linkedin.com/in/kau%C3%A3-rafael-7b0a1b286/</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">GitHub</div>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>https://github.com/kauasilvasos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Seu Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Seu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Desenvolvedor Full Stack. Feito com dedicação e muito código.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

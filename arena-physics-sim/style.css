@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #181831, #050510 60%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  gap: 12px;
+}
+
+.ui {
+  max-width: 900px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.controls label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.battle-panel {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #3f3f46;
+  background: #050515;
+  font-family: "JetBrains Mono", "Fira Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.8rem;
+  display: none;
+}
+
+.battle-panel-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
+  color: #e5e7eb;
+}
+
+.battle-teams {
+  display: flex;
+  gap: 8px;
+}
+
+.battle-team {
+  flex: 1 1 0;
+  border: 1px solid #27272a;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.battle-team-header {
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+}
+
+.battle-team-blue .battle-team-header {
+  color: #60a5fa;
+}
+
+.battle-team-orange .battle-team-header {
+  color: #f97316;
+}
+
+.battle-team-body label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.battle-class-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 8px;
+  margin-top: 4px;
+}
+
+.battle-class-grid label {
+  font-size: 0.75rem;
+}
+
+select,
+input[type='range'],
+button {
+  accent-color: #ffda65;
+}
+
+button {
+  background: #26264a;
+  border: 1px solid #4e4e8f;
+  color: #f5f5f5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: #343465;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.legend {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.main-layout {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  align-items: stretch;
+}
+
+.canvas-container {
+  flex: 1 1 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  padding: 8px;
+  background: radial-gradient(circle at center, #15152a, #020208 70%);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.chat-panel {
+  width: 260px;
+  max-width: 40%;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.chat-panel h2 {
+  font-size: 0.9rem;
+}
+
+.chat-restart-btn {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+}
+
+.chat-log {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.chat-line {
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+
+#arenaCanvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, #050510, #020208 70%);
+  display: block;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .battle-teams {
+    flex-direction: column;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .chat-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+}

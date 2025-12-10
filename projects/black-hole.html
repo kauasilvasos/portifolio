@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação Black Hole - Portfólio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="bracket">&lt;</span>
+                <span class="name">Dev</span>
+                <span class="bracket">/&gt;</span>
+            </div>
+            <a href="../index.html" class="nav-back">← Voltar</a>
+        </div>
+    </nav>
+
+    <main class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Simulação Black Hole</h1>
+                <p class="project-description">Experimento visual em Canvas simulando partículas orbitando um buraco negro para estudar física básica e animações.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">HTML5 Canvas</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Simulação</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <section class="project-section">
+                    <h2>Sobre o Projeto</h2>
+                    <p>Este projeto surgiu como um estudo de física básica aplicada à computação gráfica. A ideia é representar um buraco negro no centro da tela e múltiplas partículas orbitando ao redor, sofrendo influência de um campo de gravidade simplificado.</p>
+                    <p>Ele foi desenvolvido ao longo do meu primeiro ano de experiência em programação, e ainda é um projeto ativo que uso para experimentar novas ideias de visualização.</p>
+                </section>
+
+                <section class="project-section">
+                    <h2>Objetivos Técnicos</h2>
+                    <ul class="features-list">
+                        <li>Modelar um campo de força simples para atrair partículas para o centro.</li>
+                        <li>Trabalhar com atualizações em tempo real usando JavaScript e requestAnimationFrame.</li>
+                        <li>Explorar composição de cores, gradientes e efeitos de trilha no Canvas.</li>
+                        <li>Garantir boa performance mesmo com muitas partículas em tela.</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Conceitos Estudados</h2>
+                    <div class="architecture">
+                        <div class="arch-item">
+                            <h3>Matemática</h3>
+                            <ul>
+                                <li>Vetores para posição, velocidade e aceleração.</li>
+                                <li>Cálculo de distância entre pontos.</li>
+                                <li>Força inversamente proporcional à distância.</li>
+                            </ul>
+                        </div>
+                        <div class="arch-item">
+                            <h3>Renderização</h3>
+                            <ul>
+                                <li>Desenho de milhares de partículas no Canvas.</li>
+                                <li>Efeito de trilha usando transparência no fundo.</li>
+                                <li>Camadas de brilho para o núcleo do buraco negro.</li>
+                            </ul>
+                        </div>
+                        <div class="arch-item">
+                            <h3>Arquitetura de Código</h3>
+                            <ul>
+                                <li>Separação entre lógica de física e desenho.</li>
+                                <li>Uso de funções puras para atualização de estado.</li>
+                                <li>Organização em pequenos módulos reutilizáveis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Aprendizados</h2>
+                    <p>Este projeto me ajudou a ganhar confiança em manipular o Canvas, lidar com animações complexas e pensar em termos de simulação. Também foi uma forma prática de treinar estruturas de dados simples e otimização em JavaScript.</p>
+                    <p>Hoje eu o utilizo como laboratório: sempre que quero testar uma ideia nova de visual ou de física, costumo começar experimentando aqui.</p>
+                </section>
+
+                <section class="project-section links">
+                    <h2>Links</h2>
+                    <div class="link-buttons">
+                        <a href="https://github.com/kauasilvasos/black-hole-sim" class="btn btn-primary" target="_blank">Ver no GitHub</a>
+                        <a href="https://kauasilvasos.github.io/black-hole-sim" class="btn btn-secondary" target="_blank">Abrir simulação</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Desenvolvedor Full Stack. Feito com dedicação e muito código.</p>
+        </div>
+    </footer>
+
+    <script src="projeto3.js"></script>
+</body>
+</html>

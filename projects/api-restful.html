@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API RESTful - Portfólio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="bracket">&lt;</span>
+                <span class="name">Dev</span>
+                <span class="bracket">/&gt;</span>
+            </div>
+            <a href="../index.html" class="nav-back">← Voltar</a>
+        </div>
+    </nav>
+
+    <main class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1></h1>
+                <h1>API RESTful</h1>
+                <p class="project-description">API robusta com autenticação JWT, documentação Swagger e testes automatizados.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">Express</span>
+                    <span class="tech-badge">MongoDB</span>
+                    <span class="tech-badge">JWT</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <section class="project-section">
+                    <h2>Sobre o Projeto</h2>
+                    <p>API RESTful completa desenvolvida com Express.js e MongoDB, com autenticação JWT robusta, documentação interativa via Swagger/OpenAPI e suite completa de testes automatizados. A API foi otimizada para alta performance e segurança.</p>
+                </section>
+
+                <section class="project-section">
+                    <h2>Funcionalidades</h2>
+                    <ul class="features-list">
+                        <li>Autenticação JWT com refresh token</li>
+                        <li>Rate limiting para proteção contra abuso</li>
+                        <li>Validação de dados com Joi</li>
+                        <li>Documentação Swagger/OpenAPI</li>
+                        <li>Testes unitários e de integração</li>
+                        <li>Tratamento de erros robusto</li>
+                        <li>Logging estruturado</li>
+                        <li>Suporte a CORS configurável</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Endpoints Documentados</h2>
+                    <div class="endpoints-list">
+                        <div class="endpoint">
+                            <div class="endpoint-method post">POST</div>
+                            <div class="endpoint-info">
+                                <div class="endpoint-path">/api/auth/register</div>
+                                <p>Criar novo usuário</p>
+                            </div>
+                        </div>
+                        <div class="endpoint">
+                            <div class="endpoint-method post">POST</div>
+                            <div class="endpoint-info">
+                                <div class="endpoint-path">/api/auth/login</div>
+                                <p>Autenticar usuário</p>
+                            </div>
+                        </div>
+                        <div class="endpoint">
+                            <div class="endpoint-method get">GET</div>
+                            <div class="endpoint-info">
+                                <div class="endpoint-path">/api/users/:id</div>
+                                <p>Obter dados do usuário</p>
+                            </div>
+                        </div>
+                        <div class="endpoint">
+                            <div class="endpoint-method put">PUT</div>
+                            <div class="endpoint-info">
+                                <div class="endpoint-path">/api/users/:id</div>
+                                <p>Atualizar dados do usuário</p>
+                            </div>
+                        </div>
+                        <div class="endpoint">
+                            <div class="endpoint-method delete">DELETE</div>
+                            <div class="endpoint-info">
+                                <div class="endpoint-path">/api/users/:id</div>
+                                <p>Deletar usuário</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Segurança</h2>
+                    <div class="security-features">
+                        <div class="security-item">
+                            <h3>JWT Authentication</h3>
+                            <p>Tokens seguros com expiração e refresh automático.</p>
+                        </div>
+                        <div class="security-item">
+                            <h3>Rate Limiting</h3>
+                            <p>Proteção contra brute force e DDoS.</p>
+                        </div>
+                        <div class="security-item">
+                            <h3>Input Validation</h3>
+                            <p>Validação rigorosa de todos os dados de entrada.</p>
+                        </div>
+                        <div class="security-item">
+                            <h3>Password Hashing</h3>
+                            <p>Senhas criptografadas com bcrypt.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Estatísticas de Teste</h2>
+                    <div class="test-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Testes Unitários</span>
+                            <span class="stat-value">45</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Testes de Integração</span>
+                            <span class="stat-value">28</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Cobertura de Código</span>
+                            <span class="stat-value">87%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Performance</span>
+                            <span class="stat-value">~50ms</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Exemplo de Requisição</h2>
+                    <pre class="code-block"><code>// Requisição POST para criar usuário
+curl -X POST http://localhost:3000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "João Silva",
+    "email": "joao@example.com",
+    "password": "Senha@123",
+    "role": "user"
+  }'
+
+// Resposta
+{
+  "success": true,
+  "message": "Usuário criado com sucesso",
+  "data": {
+    "id": "507f1f77bcf86cd799439011",
+    "name": "João Silva",
+    "email": "joao@example.com",
+    "createdAt": "2024-12-03T10:30:00Z"
+  }
+}</code></pre>
+                </section>
+
+                <section class="project-section">
+                    <h2>Estrutura do Projeto</h2>
+                    <pre class="code-block"><code>api-restful/
+├── src/
+│   ├── controllers/      # Controllers de negócio
+│   ├── routes/           # Definição de rotas
+│   ├── middleware/       # Middlewares customizados
+│   ├── models/           # Modelos MongoDB
+│   ├── services/         # Lógica de negócio
+│   ├── utils/            # Funções utilitárias
+│   └── app.js            # Configuração Express
+├── tests/
+│   ├── unit/             # Testes unitários
+│   └── integration/      # Testes de integração
+├── docs/
+│   └── swagger.yaml      # Documentação Swagger
+└── .env                  # Variáveis de ambiente</code></pre>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Desenvolvedor Full Stack. Feito com dedicação e muito código.</p>
+        </div>
+    </footer>
+
+    <script src="projeto2.js"></script>
+</body>
+</html>

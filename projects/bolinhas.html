@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arena Caótica - Simulador de Física (Bolinhas) - Portfólio</title>
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="projects.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="bracket">&lt;</span>
+                <span class="name">Dev</span>
+                <span class="bracket">/&gt;</span>
+            </div>
+            <a href="../index.html" class="nav-back">← Voltar</a>
+        </div>
+    </nav>
+
+    <main class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1>Arena Caótica - Simulador de Física ("bolinhas")</h1>
+                <p class="project-description">Uma arena 2D caótica onde formas geométricas e "bolinhas" colidem, lutam em times e interagem em diferentes modos de jogo, construída no projeto <strong>arena-physics-sim</strong>.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML5 Canvas</span>
+                    <span class="tech-badge">Engine de Física 2D</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <section class="project-section">
+                    <h2>Sobre o Projeto</h2>
+                    <p>O Arena Caótica começou como um experimento com bolinhas colidindo e evoluiu para um simulador de física 2D completo, com diferentes modos de jogo (normal, batalha, grower, split, buraco negro, estrela) e dezenas de formas simultâneas na tela.</p>
+                    <p>O usuário consegue ajustar em tempo real parâmetros como quantidade de formas, velocidade mínima, escala de tempo, vida base e força de dano, visualizando imediatamente o impacto dessas mudanças na simulação.</p>
+                </section>
+
+                <section class="project-section">
+                    <h2>Desafios Técnicos</h2>
+                    <ul class="features-list">
+                        <li>Detectar e resolver colisões entre muitas formas dentro de uma arena circular, mantendo performance.</li>
+                        <li>Implementar modos de batalha com times (azul x laranja), classes especiais (Super, Lança, Evoker, Grower) e diferentes multiplicadores de dano.</li>
+                        <li>Criar efeitos visuais como slow motion em abates, rastros de movimento e habilidades especiais sem quebrar a simulação.</li>
+                        <li>Adaptar o canvas e a arena para tamanhos de tela diferentes, mantendo proporções e sensação de profundidade.</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Conceitos Estudados</h2>
+                    <div class="architecture">
+                        <div class="arch-item">
+                            <h3>Física e Matemática</h3>
+                            <ul>
+                                <li>Cálculo de vetores de velocidade e normal em colisões entre círculos e outras formas.</li>
+                                <li>Conservação aproximada de momento e ajustes de atrito/energia por modo de jogo.</li>
+                                <li>Sistema de escala de tempo (time scale) com câmera lenta controlada por eventos.</li>
+                            </ul>
+                        </div>
+                        <div class="arch-item">
+                            <h3>Desenho e Animação</h3>
+                            <ul>
+                                <li>Renderização de formas diferentes (círculos, quadrados, estrelas) com feedback visual por time.</li>
+                                <li>Efeitos de trilha, splash e habilidades como "kamehameha" mantendo 60 FPS sempre que possível.</li>
+                                <li>Uso intenso de canvas 2D, requestAnimationFrame e cálculos em tempo real.</li>
+                            </ul>
+                        </div>
+                        <div class="arch-item">
+                            <h3>Arquitetura do Código</h3>
+                            <ul>
+                                <li>Modelagem de cada entidade da arena em classes com responsabilidades claras.</li>
+                                <li>Separação entre engine de física, renderização, interface de controle e "battle chat" textual.</li>
+                                <li>Configuração por times e classes usando objetos de configuração reutilizáveis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Resultados e Uso Atual</h2>
+                    <p>Hoje o Arena Caótica é meu principal laboratório para testar ideias de física, balanceamento de dano, feedback visual e design de jogabilidade emergente em JavaScript.</p>
+                    <p>O projeto continua em evolução e serve como base para futuros jogos 2D e novas mecânicas, além de ser uma ótima demonstração prática do que consigo construir usando apenas HTML, CSS e JavaScript puro.</p>
+                </section>
+
+                <section class="project-section links">
+                    <h2>Links</h2>
+                    <div class="link-buttons">
+                        <a href="https://github.com/kauasilvasos/arena-physics-sim" class="btn btn-primary" target="_blank">Ver no GitHub</a>
+                        <a href="https://kauasilvasos.github.io/arena-physics-sim" class="btn btn-secondary" target="_blank">Abrir simulação</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Desenvolvedor Full Stack. Feito com dedicação e muito código.</p>
+        </div>
+    </footer>
+
+    <script src="projeto3.js"></script>
+</body>
+</html>

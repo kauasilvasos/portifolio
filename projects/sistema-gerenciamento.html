@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento - Portfólio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="bracket">&lt;</span>
+                <span class="name">Dev</span>
+                <span class="bracket">/&gt;</span>
+            </div>
+            <a href="../index.html" class="nav-back">← Voltar</a>
+        </div>
+    </nav>
+
+    <main class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1></h1>
+                <h1>Sistema de Gerenciamento</h1>
+                <p class="project-description">Aplicação web completa para gerenciamento de produtos e estoque com dashboard interativo.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <section class="project-section">
+                    <h2>Sobre o Projeto</h2>
+                    <p>Sistema completo de gerenciamento de estoque desenvolvido com tecnologias atuais. O projeto inclui autenticação de usuários, gestão de produtos, controle de estoque em tempo real e relatórios detalhados.</p>
+                </section>
+
+                <section class="project-section">
+                    <h2>Funcionalidades</h2>
+                    <ul class="features-list">
+                        <li>Autenticação JWT com refresh tokens</li>
+                        <li>CRUD completo de produtos</li>
+                        <li>Controle de estoque em tempo real</li>
+                        <li>Dashboard com gráficos interativos</li>
+                        <li>Relatórios exportáveis em PDF</li>
+                        <li>Notificações de baixo estoque</li>
+                        <li>Interface responsiva</li>
+                        <li>Modo claro e escuro</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>💾 Dados de Demonstração</h2>
+                    <div class="demo-section">
+                        <h3>Produtos em Estoque</h3>
+                        <div class="table-responsive">
+                            <table class="demo-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Produto</th>
+                                        <th>Quantidade</th>
+                                        <th>Preço</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTable">
+                                    <!-- Preenchido por JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-preview">
+                        <div class="stat-card">
+                            <div class="stat-icon">Produtos</div>
+                            <div class="stat-info">
+                                <h3>Produtos Totais</h3>
+                                <p class="stat-number">1.250</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">Valor</div>
+                            <div class="stat-info">
+                                <h3>Valor em Estoque</h3>
+                                <p class="stat-number">R$ 245.800</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">Alertas</div>
+                            <div class="stat-info">
+                                <h3>Baixo Estoque</h3>
+                                <p class="stat-number">18</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">Fluxo</div>
+                            <div class="stat-info">
+                                <h3>Movimentações</h3>
+                                <p class="stat-number">342</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Arquitetura</h2>
+                    <div class="architecture">
+                        <div class="arch-item">
+                            <h3>Frontend</h3>
+                            <ul>
+                                <li>React 18+</li>
+                                <li>Redux para state management</li>
+                                <li>Axios para requisições</li>
+                                <li>Chart.js para gráficos</li>
+                            </ul>
+                        </div>
+                        <div class="arch-item">
+                            <h3>Backend</h3>
+                            <ul>
+                                <li>Express.js</li>
+                                <li>PostgreSQL</li>
+                                <li>Sequelize ORM</li>
+                                <li>JWT Authentication</li>
+                            </ul>
+                        </div>
+                        <div class="arch-item">
+                            <h3>DevOps</h3>
+                            <ul>
+                                <li>Docker containers</li>
+                                <li>Docker Compose</li>
+                                <li>CI/CD com GitHub Actions</li>
+                                <li>Deploy em AWS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Código Exemplo</h2>
+                    <pre class="code-block"><code>// API Endpoint para listagem de produtos
+app.get('/api/products', authMiddleware, async (req, res) => {
+  try {
+    const products = await Product.findAll({
+      where: { userId: req.user.id },
+      order: [['createdAt', 'DESC']],
+      limit: 50
+    });
+    
+    res.json({
+      success: true,
+      data: products,
+      total: products.length
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});</code></pre>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Desenvolvedor Full Stack. Feito com dedicação e muito código.</p>
+        </div>
+    </footer>
+
+    <script src="projeto1.js"></script>
+</body>
+</html>

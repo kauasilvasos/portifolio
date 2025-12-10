@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arena Caótica - Simulador de Física</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ui">
+      <h1>Arena Caótica</h1>
+
+      <div class="controls">
+        <label>
+          Modo:
+          <select id="modeSelect">
+            <option value="normal">Normal</option>
+            <option value="battle">Batalha</option>
+            <option value="grower">Grower</option>
+            <option value="split">Divisor</option>
+            <option value="blackhole">Buraco negro</option>
+            <option value="star">Estrela</option>
+          </select>
+        </label>
+
+        <label>
+          Formas:
+          <input id="shapeCount" type="range" min="3" max="40" value="15" />
+          <span id="shapeCountLabel">15</span>
+        </label>
+
+        <label>
+          <input id="onlyCircles" type="checkbox" />
+          Só círculos
+        </label>
+
+        <label>
+          <input id="speedBoost" type="checkbox" checked />
+          Turbo 10%
+        </label>
+
+        <label>
+          Vel. mín.:
+          <input id="minSpeed" type="range" min="0" max="200" value="30" />
+          <span id="minSpeedLabel">30</span>
+        </label>
+
+        <label>
+          Tempo:
+          <input id="timeScale" type="range" min="0.1" max="2" step="0.05" value="1" />
+          <span id="timeScaleLabel">1.0x</span>
+        </label>
+
+        <label>
+          <input id="killSlow" type="checkbox" />
+          Slow ao matar
+        </label>
+
+        <label>
+          Vida base (outros modos):
+          <input id="baseHp" type="range" min="50" max="400" value="180" />
+          <span id="baseHpLabel">180</span>
+        </label>
+
+        <button id="restartBtn">Reiniciar</button>
+        <button id="pauseBtn">Pausar</button>
+      </div>
+
+      <div id="battlePanel" class="battle-panel">
+        <div class="battle-panel-title">BATTLE LOADOUT</div>
+        <div class="battle-teams">
+          <div class="battle-team battle-team-blue">
+            <div class="battle-team-header">TIME AZUL</div>
+            <div class="battle-team-body">
+              <label>
+                HP base:
+                <input id="blueHp" type="number" min="50" max="400" value="180" />
+                <span id="blueHpLabel">180</span>
+              </label>
+              <label>
+                Força (% dano):
+                <input id="blueDmg" type="number" min="10" max="400" value="100" />
+                <span id="blueDmgLabel">100%</span>
+              </label>
+              <label>
+                Qtd. azul:
+                <input id="blueCount" type="number" min="0" max="40" value="7" />
+              </label>
+              <div class="battle-class-grid">
+                <label>
+                  Super:
+                  <input id="blueSuperCount" type="number" min="0" max="40" value="0" />
+                </label>
+                <label>
+                  Lança:
+                  <input id="blueLancaCount" type="number" min="0" max="40" value="0" />
+                </label>
+                <label>
+                  Evoker:
+                  <input id="blueEvokerCount" type="number" min="0" max="40" value="0" />
+                </label>
+                <label>
+                  Grower:
+                  <input id="blueGrowerCount" type="number" min="0" max="40" value="0" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="battle-team battle-team-orange">
+            <div class="battle-team-header">TIME LARANJA</div>
+            <div class="battle-team-body">
+              <label>
+                HP base:
+                <input id="orangeHp" type="number" min="50" max="400" value="180" />
+                <span id="orangeHpLabel">180</span>
+              </label>
+              <label>
+                Força (% dano):
+                <input id="orangeDmg" type="number" min="10" max="400" value="100" />
+                <span id="orangeDmgLabel">100%</span>
+              </label>
+              <label>
+                Qtd. laranja:
+                <input id="orangeCount" type="number" min="0" max="40" value="7" />
+              </label>
+              <div class="battle-class-grid">
+                <label>
+                  Super:
+                  <input id="orangeSuperCount" type="number" min="0" max="40" value="0" />
+                </label>
+                <label>
+                  Lança:
+                  <input id="orangeLancaCount" type="number" min="0" max="40" value="0" />
+                </label>
+                <label>
+                  Evoker:
+                  <input id="orangeEvokerCount" type="number" min="0" max="40" value="0" />
+                </label>
+                <label>
+                  Grower:
+                  <input id="orangeGrowerCount" type="number" min="0" max="40" value="0" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      <div class="canvas-container">
+        <canvas id="arenaCanvas"></canvas>
+      </div>
+      <div class="chat-panel">
+        <div class="chat-header">
+          <h2>Battle chat</h2>
+          <button id="restartChatBtn" class="chat-restart-btn">Reiniciar</button>
+        </div>
+        <div id="battleChat" class="chat-log"></div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
