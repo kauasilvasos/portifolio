@@ -14,10 +14,8 @@ window.addEventListener("resize", () => {
   canvas.height = height;
 });
 
-// Espaço em coordenadas normalizadas (0..width, 0..height)
-const G = 1200; // constante gravitacional "artística"
+const G = 1200;
 
-// Controles de UI e parâmetros globais
 const bhTypeSelect = document.getElementById("bh-type");
 const bhMassSlider = document.getElementById("bh-mass");
 const bhMassLabel = document.getElementById("bh-mass-label");
@@ -83,13 +81,11 @@ class BlackHole {
       ctx.scale(1 + flatten, 1 - flatten);
     }
 
-    // Horizonte de eventos: interior totalmente escuro
     ctx.beginPath();
     ctx.fillStyle = "#000000";
     ctx.arc(0, 0, visualR, 0, Math.PI * 2);
     ctx.fill();
 
-    // Disco de acreção base (quente: branco/amarelo/laranja)
     const diskGrad = ctx.createRadialGradient(
       0,
       0,
@@ -110,7 +106,6 @@ class BlackHole {
     ctx.arc(0, 0, diskOuterR, 0, Math.PI * 2);
     ctx.fill();
 
-    // Anel fotônico brilhante ao redor da sombra (tipo EHT/M87)
     const photonGrad = ctx.createRadialGradient(
       0,
       0,
@@ -161,13 +156,11 @@ class Planet {
     this.x += this.vx * dt;
     this.y += this.vy * dt;
 
-    // trilha
     this.trail.push({ x: this.x, y: this.y });
     if (this.trail.length > this.maxTrail) {
       this.trail.shift();
     }
 
-    // se cair dentro do buraco negro, marcamos para remoção
     const eventRadius = blackHole.radius * 0.9;
     if (dist < eventRadius) {
       this.dead = true;
@@ -175,7 +168,6 @@ class Planet {
   }
 
   draw() {
-    // trilha
     if (this.trail.length > 1) {
       ctx.save();
       ctx.beginPath();
@@ -202,7 +194,6 @@ class Planet {
       ctx.restore();
     }
 
-    // corpo do planeta
     const grd = ctx.createRadialGradient(
       this.x - this.radius * 0.4,
       this.y - this.radius * 0.4,
@@ -247,7 +238,6 @@ class AccretionParticle {
     this.life = 0;
     this.maxLife = 1.4 + Math.random() * 1.2;
     this.size = 1 + Math.random() * 2.4;
-    // cores quentes (laranja/amarelo/branco)
     this.hue = 25 + Math.random() * 25;
     this.lightness = 55 + Math.random() * 15;
   }
@@ -259,7 +249,6 @@ class AccretionParticle {
       return;
     }
 
-    // leve turbulência + atração extra para dentro
     const dx = this.blackHole.x - this.x;
     const dy = this.blackHole.y - this.y;
     const dist = Math.sqrt(dx * dx + dy * dy) + 0.001;
@@ -268,7 +257,6 @@ class AccretionParticle {
     this.vx += (dx / dist) * pull * dt;
     this.vy += (dy / dist) * pull * dt;
 
-    // turbulência
     const turbulence = 40 * dt;
     this.vx += (Math.random() - 0.5) * turbulence;
     this.vy += (Math.random() - 0.5) * turbulence;
@@ -312,19 +300,13 @@ for (let i = 0; i < STAR_COUNT; i++) {
   });
 }
 
-// Partículas de acreção desativadas (disco agora é só o gradiente analítico)
-// for (let i = 0; i < 750; i++) {
-//   particles.push(new AccretionParticle(blackHole));
-// }
-
-// alguns planetas iniciais para dar graça
 function spawnInitialPlanets() {
   const colors = [
-    "rgb(96,165,250)", // azul
-    "rgb(239,68,68)", // vermelho
-    "rgb(250,204,21)", // amarelo
-    "rgb(16,185,129)", // verde
-    "rgb(244,114,182)", // rosa
+    "rgb(96,165,250)", 
+    "rgb(239,68,68)", 
+    "rgb(250,204,21)", 
+    "rgb(16,185,129)", 
+    "rgb(244,114,182)", 
   ];
 
   for (let i = 0; i < 6; i++) {
@@ -345,7 +327,6 @@ function spawnInitialPlanets() {
 
 spawnInitialPlanets();
 
-// ----- Ligação da UI -----
 
 if (bhTypeSelect) {
   bhTypeSelect.addEventListener("change", (e) => {
@@ -400,7 +381,6 @@ if (modeButtons && modeButtons.length) {
   });
 }
 
-// interação com mouse
 let isDragging = false;
 let dragStart = null;
 let dragCurrent = null;
@@ -429,7 +409,7 @@ canvas.addEventListener("mouseup", (e) => {
   if (strength < 5) {
     dragStart = null;
     dragCurrent = null;
-    return; // arrasto muito pequeno
+    return; 
   }
 
   const angle = Math.atan2(dy, dx);
@@ -506,7 +486,6 @@ function drawBackground(deltaSeconds) {
 
   const lensRadius = (blackHole.radius / Math.max(cameraDistance, 0.25)) * 4.2;
 
-  // estrelas + lente gravitacional
   for (const star of stars) {
     star.phase += star.twinkleSpeed * deltaSeconds;
     const twinkle = 0.5 + 0.5 * Math.sin(star.phase);
@@ -528,7 +507,6 @@ function drawBackground(deltaSeconds) {
       sx = blackHole.x + dx * factor;
       sy = blackHole.y + dy * factor;
 
-      // imagem espelhada do outro lado do buraco negro
       const mirrorFactor = 1 - bendStrength * 0.4;
       const mx = blackHole.x - dx * mirrorFactor;
       const my = blackHole.y - dy * mirrorFactor;
@@ -585,7 +563,6 @@ function loop(now) {
   const simulationSpeed = 1.1;
   const step = dt * simulationSpeed;
 
-  // animação da câmera (aproximação / órbita)
   if (cameraMode === "approach") {
     const target = 0.6;
     cameraDistance -= approachSpeed * step * 0.25;
@@ -604,32 +581,26 @@ function loop(now) {
 
   drawBackground(step);
 
-  // partículas do disco de acreção
   for (const p of particles) {
     p.update(step);
     p.draw();
   }
 
-  // atualizar buraco negro (rotação, fase)
   blackHole.update(step);
   blackHole.draw(cameraDistance);
 
-  // atualizar planetas
   for (const planet of planets) {
     planet.update(step, blackHole);
   }
 
-  // colisões entre planetas
   handlePlanetCollisions();
 
-  // remover planetas "devorados"
   for (let i = planets.length - 1; i >= 0; i--) {
     if (planets[i].dead) {
       planets.splice(i, 1);
     }
   }
 
-  // desenhar planetas após atualizar todos
   for (const planet of planets) {
     planet.draw();
   }

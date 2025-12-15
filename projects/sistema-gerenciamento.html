@@ -37,11 +37,6 @@
 
             <div class="project-content">
                 <section class="project-section">
-                    <h2>Sobre o Projeto</h2>
-                    <p>Sistema completo de gerenciamento de estoque desenvolvido com tecnologias atuais. O projeto inclui autenticação de usuários, gestão de produtos, controle de estoque em tempo real e relatórios detalhados.</p>
-                </section>
-
-                <section class="project-section">
                     <h2>Funcionalidades</h2>
                     <ul class="features-list">
                         <li>Autenticação JWT com refresh tokens</li>
@@ -56,7 +51,7 @@
                 </section>
 
                 <section class="project-section">
-                    <h2>💾 Dados de Demonstração</h2>
+                    <h2>Dados para Demonstração</h2>
                     <div class="demo-section">
                         <h3>Produtos em Estoque</h3>
                         <div class="table-responsive">
@@ -71,7 +66,6 @@
                                     </tr>
                                 </thead>
                                 <tbody id="productsTable">
-                                    <!-- Preenchido por JavaScript -->
                                 </tbody>
                             </table>
                         </div>
@@ -145,27 +139,6 @@
                     </div>
                 </section>
 
-                <section class="project-section">
-                    <h2>Código Exemplo</h2>
-                    <pre class="code-block"><code>// API Endpoint para listagem de produtos
-app.get('/api/products', authMiddleware, async (req, res) => {
-  try {
-    const products = await Product.findAll({
-      where: { userId: req.user.id },
-      order: [['createdAt', 'DESC']],
-      limit: 50
-    });
-    
-    res.json({
-      success: true,
-      data: products,
-      total: products.length
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});</code></pre>
-                </section>
 
             </div>
         </div>

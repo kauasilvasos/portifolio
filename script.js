@@ -1,4 +1,3 @@
-// Typing effect for hero section
 const texts = [
     'whoami',
     'cat about.txt',
@@ -39,10 +38,8 @@ function typeText() {
     setTimeout(typeText, isDeleting ? deletingSpeed : typingSpeed);
 }
 
-// Start typing effect
 setTimeout(typeText, 1000);
 
-// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -56,7 +53,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background on scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -66,7 +62,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate skill bars when in viewport
 const observerOptions = {
     threshold: 0.5,
     rootMargin: '0px'
@@ -89,7 +84,6 @@ if (skillsSection) {
     skillObserver.observe(skillsSection);
 }
 
-// Copy code functionality for museum
 document.querySelectorAll('.btn-copy').forEach(button => {
     button.addEventListener('click', function() {
         const codeBlock = this.previousElementSibling.querySelector('code');
@@ -110,7 +104,6 @@ document.querySelectorAll('.btn-copy').forEach(button => {
     });
 });
 
-// Snake Game
 const canvas = document.getElementById('snakeCanvas');
 const ctx = canvas.getContext('2d');
 const startBtn = document.getElementById('startBtn');
@@ -123,6 +116,65 @@ const gameOverElement = document.getElementById('gameOver');
 
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
+
+let gameSpeed = parseInt(localStorage.getItem('snakeGameSpeed')) || 100;
+
+function setGameSpeed(ms) {
+    gameSpeed = ms;
+    localStorage.setItem('snakeGameSpeed', String(ms));
+    if (gameLoop) {
+        clearInterval(gameLoop);
+        gameLoop = setInterval(drawGame, gameSpeed);
+    }
+}
+
+function createSpeedControl() {
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.right = '12px';
+    container.style.bottom = '12px';
+    container.style.background = 'rgba(10,14,39,0.9)';
+    container.style.color = '#fff';
+    container.style.padding = '8px 10px';
+    container.style.borderRadius = '8px';
+    container.style.zIndex = '9999';
+    container.style.fontSize = '13px';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.gap = '8px';
+
+    const label = document.createElement('span');
+    label.textContent = 'Velocidade';
+    container.appendChild(label);
+
+    const select = document.createElement('select');
+    const options = [
+        { label: '0.5x', value: 200 },
+        { label: '0.75x', value: 150 },
+        { label: '1x', value: 100 },
+        { label: '1.25x', value: 80 },
+        { label: '1.5x', value: 66 },
+        { label: '2x', value: 50 }
+    ];
+    options.forEach(opt => {
+        const o = document.createElement('option');
+        o.value = String(opt.value);
+        o.textContent = opt.label;
+        select.appendChild(o);
+    });
+    select.value = String(gameSpeed);
+    select.addEventListener('change', () => setGameSpeed(parseInt(select.value)));
+
+    container.appendChild(select);
+    document.body.appendChild(container);
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createSpeedControl);
+} else {
+    createSpeedControl();
+}
+
 
 let snake = [{ x: 10, y: 10 }];
 let velocity = { x: 0, y: 0 };
@@ -138,21 +190,17 @@ highScoreElement.textContent = highScore;
 function drawGame() {
     if (isPaused) return;
     
-    // Clear canvas
     ctx.fillStyle = '#1a1f3a';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Move snake
     if (gameStarted) {
         const head = { x: snake[0].x + velocity.x, y: snake[0].y + velocity.y };
         
-        // Check wall collision
         if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
             gameOver();
             return;
         }
         
-        // Check self collision
         for (let i = 0; i < snake.length; i++) {
             if (head.x === snake[i].x && head.y === snake[i].y) {
                 gameOver();
@@ -162,7 +210,6 @@ function drawGame() {
         
         snake.unshift(head);
         
-        // Check food collision
         if (head.x === food.x && head.y === food.y) {
             score++;
             scoreElement.textContent = score;
@@ -172,12 +219,10 @@ function drawGame() {
         }
     }
     
-    // Draw snake
     snake.forEach((segment, index) => {
         ctx.fillStyle = index === 0 ? '#00d9ff' : '#4facfe';
         ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
         
-        // Add glow effect to head
         if (index === 0) {
             ctx.shadowBlur = 10;
             ctx.shadowColor = '#00d9ff';
@@ -186,7 +231,6 @@ function drawGame() {
         }
     });
     
-    // Draw food
     ctx.fillStyle = '#f97316';
     ctx.shadowBlur = 15;
     ctx.shadowColor = '#f97316';
@@ -201,7 +245,6 @@ function drawGame() {
     ctx.fill();
     ctx.shadowBlur = 0;
     
-    // Draw grid
     ctx.strokeStyle = 'rgba(0, 217, 255, 0.1)';
     ctx.lineWidth = 1;
     for (let i = 0; i <= tileCount; i++) {
@@ -259,7 +302,7 @@ function startGame() {
     placeFood();
     gameOverElement.classList.remove('active');
     
-    gameLoop = setInterval(drawGame, 100);
+    gameLoop = setInterval(drawGame, gameSpeed);
     startBtn.disabled = true;
     pauseBtn.disabled = false;
 }
@@ -272,7 +315,6 @@ function togglePause() {
     }
 }
 
-// Event listeners for game controls
 startBtn.addEventListener('click', startGame);
 pauseBtn.addEventListener('click', togglePause);
 restartBtn.addEventListener('click', () => {
@@ -280,7 +322,6 @@ restartBtn.addEventListener('click', () => {
     startGame();
 });
 
-// Keyboard controls
 document.addEventListener('keydown', (e) => {
     if (!gameStarted) return;
     
@@ -320,10 +361,8 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Draw initial game state
 drawGame();
 
-// Contact form handling
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -332,14 +371,11 @@ contactForm.addEventListener('submit', (e) => {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
     
-    // Simulate form submission
     alert(`Obrigado pelo contato, ${name}! Em breve retornaremos sua mensagem.`);
     
-    // Reset form
     contactForm.reset();
 });
 
-// Hamburger menu (for mobile - basic functionality)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -347,7 +383,6 @@ hamburger.addEventListener('click', () => {
     navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
 });
 
-// Add fade-in animation to sections
 const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -364,7 +399,6 @@ document.querySelectorAll('section').forEach(section => {
     fadeObserver.observe(section);
 });
 
-// Parallax effect for hero section
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -373,7 +407,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add active state to navigation links
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -396,7 +429,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Project card interactions
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', function() {
         const projectTitle = this.querySelector('h3').textContent;
@@ -404,7 +436,6 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Add floating animation to elements
 const style = document.createElement('style');
 style.textContent = `
     @keyframes float {

@@ -1,16 +1,14 @@
-// Dados de produtos simulados
 const mockProducts = [
     { id: 1, name: 'Notebook Dell', quantity: 150, price: 3999.90, status: 'Ativo' },
     { id: 2, name: 'Mouse Logitech', quantity: 45, price: 149.90, status: 'Baixo Estoque' },
     { id: 3, name: 'Teclado Mecânico', quantity: 320, price: 799.90, status: 'Ativo' },
-    { id: 4, name: 'Monitor 27"', quantity: 8, price: 1999.90, status: 'Crítico' },
+    { id: 4, name: 'Monitor 27"', quantity: 8, price: 1999.90, status: 'Baixo Estoque' },
     { id: 5, name: 'Webcam 4K', quantity: 250, price: 599.90, status: 'Ativo' },
     { id: 6, name: 'Headset Gamer', quantity: 75, price: 449.90, status: 'Ativo' },
-    { id: 7, name: 'SSD 1TB', quantity: 12, price: 599.90, status: 'Crítico' },
+    { id: 7, name: 'SSD 1TB', quantity: 12, price: 599.90, status: 'Baixo Estoque' },
     { id: 8, name: 'Memória RAM 16GB', quantity: 180, price: 299.90, status: 'Ativo' },
 ];
 
-// Renderizar tabela de produtos
 function renderProductsTable() {
     const tbody = document.getElementById('productsTable');
     
@@ -19,7 +17,7 @@ function renderProductsTable() {
         return;
     }
     
-    tbody.innerHTML = ''; // Limpar tabela
+    tbody.innerHTML = '';
     
     mockProducts.forEach(product => {
         const row = document.createElement('tr');
@@ -42,7 +40,6 @@ function renderProductsTable() {
     });
 }
 
-// Adicionar estilos para os status
 function addStatusStyles() {
     const style = document.createElement('style');
     style.textContent = `
@@ -74,7 +71,6 @@ function addStatusStyles() {
     document.head.appendChild(style);
 }
 
-// Animação de entrada suave
 function animateSections() {
     document.querySelectorAll('.project-section').forEach((section, index) => {
         section.style.opacity = '0';
@@ -89,20 +85,17 @@ function animateSections() {
     });
 }
 
-// Inicializar página
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Sistema de Gerenciamento carregado');
     addStatusStyles();
     renderProductsTable();
     animateSections();
     
-    // Simular atualização de dados a cada 5 segundos
     setInterval(() => {
         mockProducts.forEach(product => {
             if (Math.random() > 0.7) {
                 product.quantity = Math.max(0, product.quantity + Math.floor(Math.random() * 20 - 10));
                 
-                // Atualizar status baseado na quantidade
                 if (product.quantity === 0) {
                     product.status = 'Indisponível';
                 } else if (product.quantity < 20) {

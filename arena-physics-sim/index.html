@@ -18,7 +18,6 @@
             <option value="battle">Batalha</option>
             <option value="grower">Grower</option>
             <option value="split">Divisor</option>
-            <option value="blackhole">Buraco negro</option>
             <option value="star">Estrela</option>
           </select>
         </label>
@@ -40,12 +39,6 @@
         </label>
 
         <label>
-          Vel. mín.:
-          <input id="minSpeed" type="range" min="0" max="200" value="30" />
-          <span id="minSpeedLabel">30</span>
-        </label>
-
-        <label>
           Tempo:
           <input id="timeScale" type="range" min="0.1" max="2" step="0.05" value="1" />
           <span id="timeScaleLabel">1.0x</span>
@@ -54,12 +47,6 @@
         <label>
           <input id="killSlow" type="checkbox" />
           Slow ao matar
-        </label>
-
-        <label>
-          Vida base (outros modos):
-          <input id="baseHp" type="range" min="50" max="400" value="180" />
-          <span id="baseHpLabel">180</span>
         </label>
 
         <button id="restartBtn">Reiniciar</button>
@@ -161,6 +148,8 @@
       </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="engine.js"></script>
+    <script src="render.js"></script>
+    <script src="ui.js"></script>
   </body>
 </html>
